@@ -36,30 +36,18 @@ public class ArregloCircularRotado {
 
         int rotaciones = 0;
 
-        if (array.length == 0 || array.length == 1) {
-            return rotaciones;
-        }
-
-        if (posicionInicial >= posicionFinal) {
+        if ((array.length == 0 || array.length == 1) || posicionInicial >= posicionFinal) {
             return rotaciones;
         }
 
         int medio = (posicionFinal + posicionInicial) / 2;
 
         if (array[medio] > array[posicionFinal]) {
-
-            rotaciones = cantidadDeRotaciones(array, posicionInicial + 1, posicionFinal - 1);
-
-            return ++rotaciones;
-
+            rotaciones = cantidadDeRotaciones(array, posicionInicial + 1, posicionFinal - 1) + 1;
         }
 
         if (array[medio] < array[posicionInicial]) {
-
-            rotaciones = cantidadDeRotaciones(array, posicionInicial + 1, posicionFinal - 1);
-
-            return --rotaciones;
-
+            rotaciones = cantidadDeRotaciones(array, posicionInicial + 1, posicionFinal - 1) - 1;
         }
 
         return rotaciones;
